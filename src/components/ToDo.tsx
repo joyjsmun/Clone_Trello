@@ -4,7 +4,7 @@ import {useSetRecoilState} from "recoil";
 
 function ToDo({text,category,id}:ITodo){
     const setToDos = useSetRecoilState(toDoState);
-   const onClick = (event:React.MouseEvent<HTMLButtonElement>) => {
+    const onClick = (event:React.MouseEvent<HTMLButtonElement>) => {
     const {
         currentTarget:{name}, 
     } = event ;
