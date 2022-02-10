@@ -1,4 +1,4 @@
-import {atom} from "recoil";
+import {atom,selector} from "recoil";
 
 export interface ITodo{
     text:string;
@@ -14,3 +14,14 @@ export const toDoState = atom<ITodo[]>({
 
 });
 
+export const toDoSelector = selector({
+    key:"toDoSelector",
+    get:({get}) => {
+        const toDos = get(toDoState)
+       return [
+           toDos.filter((toDo) => toDo.category === "To_Do"),
+           toDos.filter((toDo) => toDo.category === "Done"),
+           toDos.filter((toDo) => toDo.category === "Doing"),
+    ];
+    }
+})
