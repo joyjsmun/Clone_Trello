@@ -1,4 +1,4 @@
-# To-Do-List with React and Recoil
+# Cloning Trello with React and Recoil
 
 ###Using :
 - React
