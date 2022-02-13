@@ -4,12 +4,13 @@ import styled from "styled-components";
 
 
 const Wrapper = styled.div`
-  padding:0px 10px;
+  
   padding-top: 30px;
   background-color: ${(props) => props.theme.boardColor};
   border-radius:3px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   
 `
 const Title = styled.h2`
@@ -24,8 +25,15 @@ interface IAreaProps{
 }
 
 const Area = styled.div<IAreaProps>`
-    background-color: ${(props) =>(props.isDraggingOver ? "pink" : props.isDraggingFromThis ? "red":"blue")};
+    background-color: ${(props) =>(
+        props.isDraggingOver ? 
+        "#dfe6e9" 
+        : props.isDraggingFromThis 
+        ? "#b2bec3"
+        :"transparent")};
     flex-grow: 1;
+    padding:20px;
+    transition: background-color 0.3s ease-in-out;
 
 `
 
