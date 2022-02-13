@@ -10,5 +10,6 @@ export const toDoState = atom<IToDoState>({
         "ToDo":["a","b","c","d","e"],
         Doing:["f","g"],
         Done:["h"],
+        Love:[],
     }
 }) 

@@ -19,7 +19,7 @@ const Boards = styled.div`
   display: grid;
   gap:15px;
   width: 100%;
-  grid-template-columns:repeat(3,1fr) ;
+  grid-template-columns:repeat(4,1fr) ;
   min-height: 200px;
 `
 
@@ -46,7 +46,17 @@ function App(){
      )
     }
     if(destination?.droppableId !== source.droppableId){
-      
+      setToDos((allBoards) => {
+        const sourceBoard = [...allBoards[source.droppableId]];
+        const destinationBoard = [...allBoards[destination.droppableId]];
+        sourceBoard.splice(source.index,1);
+        destinationBoard.splice(destination?.index,0,draggableId);
+        return{
+          ...allBoards,
+          [source.droppableId]:sourceBoard,
+          [destination.droppableId]:destinationBoard,
+        }
+      })
     }
   
   }

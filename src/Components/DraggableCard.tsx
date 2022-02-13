@@ -15,7 +15,6 @@ const Card = styled.div`
 `
 
 function DraggableCard({toDo,index}:IDragabbleCardProps) {
-   console.log(toDo,"has been rendered");
  return (
     <Draggable key={toDo} draggableId={toDo} index={index}>
     {(magic) => 
