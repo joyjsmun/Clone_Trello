@@ -3,7 +3,8 @@ import styled from "styled-components";
 import React from "react";
 
 interface IDragabbleCardProps{
-    toDo:string;
+    toDoId:number;
+    toDoText:string;
     index:number;
 }
 
@@ -16,16 +17,16 @@ const Card = styled.div<{isDragging:boolean}>`
     props.isDragging ? "0px 2px 5px rgba(0, 0, 0, 0.05)" : "none"};
 `
 
-function DraggableCard({toDo,index}:IDragabbleCardProps) {
+function DraggableCard({toDoId,index,toDoText}:IDragabbleCardProps) {
  return (
-    <Draggable key={toDo} draggableId={toDo} index={index}>
+    <Draggable draggableId={toDoId+""} index={index}>
     {(magic,snapshot) => 
       <Card 
       isDragging= {snapshot.isDragging}
       ref={magic.innerRef} 
        {...magic.draggableProps} 
        {...magic.dragHandleProps}>
-         {toDo}
+         {toDoText}
        </Card>}
     </Draggable>
  )   
